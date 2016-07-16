@@ -1,0 +1,236 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<meta content="telephone=no" name="format-detection">
+	<meta name="apple-mobile-web-app-title" content="万昌会房贷计算器">
+	<!-- 保存到主屏默认的标题 -->
+	<title>万昌会房贷计算器</title>
+	<meta name="apple-mobile-web-app-title" content="万昌会房贷计算器">
+	<meta name="Keywords" content="房贷计算器">
+	<meta name="Description" content="房贷计算器">
+	<link rel="stylesheet" type="text/css" href="/css/phone_base.css">
+	<link rel="stylesheet" type="text/css" href="/css/business.css">
+</head>
+<body data-page-id="1105" data-city-id="83" data-city-prefix="nn">
+<!-- 新版统一导航 -->
+<nav class="jsq-nav">
+	<div class="jsq-nav-inner" style="display: none">
+		<a href="/tools/sydk/" class="nav-item current-nav"><span>商业贷款</span></a>
+		<a href="/tools/gjjdk/" class="nav-item "><span>公积金贷款</span></a>
+		<a href="/tools/zhdk/" class="nav-item "><span>组合贷款</span></a>
+		<a href="/tools/fundlimit/" class="nav-item "><span>公积金额度评估</span></a>
+		<a href="/tools/gfnlpg/" class="nav-item "><span>购房能力评估</span></a>
+		<a href="/tools/displayHistoryRate/" class="nav-item "><span>历史利率</span></a>
+		<a href="/tools/sf/" class="nav-item "><span>税费计算器</span></a>
+		<a href="/tools/tqhd/" class="nav-item "><span>提前还款</span></a>
+	</div>
+</nav>
+<section class="jsq-form" id="mianjiForm">
+	<div class="form-section">
+		<div class="form-item unit-price-item">
+			<span class="item-label">平方单价</span>
+			<div class="item-input-box">
+				<input class="item-input" type="text" oninput="Tools.clearNoNum(this)" maxlength="9" placeholder="请输入"
+					   data-none-tips="请输入平方单价">
+			</div>
+			<span class="item-unit">元/㎡</span>
+		</div>
+		<div class="form-item area-item">
+			<span class="item-label">房屋面积</span>
+			<div class="item-input-box">
+				<input class="item-input" type="text" oninput="Tools.clearNoNum(this)" maxlength="9" placeholder="请输入"
+					   data-none-tips="请输入房屋面积">
+			</div>
+			<span class="item-unit">㎡</span>
+		</div>
+	</div>
+	<div class="form-section">
+		<div class="form-item property-item">
+			<span class="item-label">购房性质</span>
+			<div class="item-radio-box" data-value="1">
+				<span class="radio-item current-radio"><span class="radio-icon"><i></i></span>首套房</span>
+				<span class="radio-item"><span class="radio-icon"><i></i></span>二套房</span>
+			</div>
+		</div>
+		<div class="form-item percent-item">
+			<span class="item-label">首付比例</span>
+			<div class="item-select-box"><span class="select-value" data-value="0.2">二成</span><span
+					class="arrow-down"></span>
+
+				<select id="mianjiPercent" class="hidden-select">
+					<option value="0.2"
+					"selected"="selected">二成</option>
+					<option value="0.3">三成</option>
+					<option value="0.4">四成</option>
+					<option value="0.5">五成</option>
+					<option value="0.6">六成</option>
+					<option value="0.7">七成</option>
+					<option value="0.8">八成</option>
+					<option value="0.9">九成</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-item year-item">
+			<span class="item-label">贷款年限</span>
+			<div class="item-select-box"><span class="select-value" data-value="360">30年（360期）</span><span
+					class="arrow-down"></span>
+
+				<select id="mianjiSelect" class="hidden-select">
+					<option value="12">1年（12期）</option>
+					<option value="24">2年（24期）</option>
+					<option value="36">3年（36期）</option>
+					<option value="48">4年（48期）</option>
+					<option value="60">5年（60期）</option>
+					<option value="72">6年（72期）</option>
+					<option value="84">7年（84期）</option>
+					<option value="96">8年（96期）</option>
+					<option value="108">9年（108期）</option>
+					<option value="120">10年（120期）</option>
+					<option value="132">11年（132期）</option>
+					<option value="144">12年（144期）</option>
+					<option value="156">13年（156期）</option>
+					<option value="168">14年（168期）</option>
+					<option value="180">15年（180期）</option>
+					<option value="192">16年（192期）</option>
+					<option value="204">17年（204期）</option>
+					<option value="216">18年（216期）</option>
+					<option value="228">19年（228期）</option>
+					<option value="240">20年（240期）</option>
+					<option value="252">21年（252期）</option>
+					<option value="264">22年（264期）</option>
+					<option value="276">23年（276期）</option>
+					<option value="288">24年（288期）</option>
+					<option value="300">25年（300期）</option>
+					<option value="312">26年（312期）</option>
+					<option value="324">27年（324期）</option>
+					<option value="336">28年（336期）</option>
+					<option value="348">29年（348期）</option>
+					<option value="360" selected="selected">30年（360期）</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-item rate-item">
+			<span class="item-label">利　　率</span>
+			<div class="item-select-box"><span class="select-value" data-value="1"
+											   data-origin="0.049">基准利率（4.90%）</span><span class="arrow-right"></span>
+			</div>
+		</div>
+		<div class="form-btn-box">
+			<div class="generate-btn">马上计算</div>
+		</div>
+	</div>
+</section>
+</section>
+<section class="jsq-result-wrapper">
+	<div class="result-tab">
+		<div class="tab-item current-item">等额本息</div>
+		<div class="tab-item">等额本金</div>
+	</div>
+	<div class="result-content">
+		<div class="result-content-item show-item">
+			<div class="result-shoufu">
+				<span class="shoufu-left">首付金额</span>
+				<div class="shoufu-right"></div>
+			</div>
+			<div class="result-month">
+				<span class="month-left">每月还款</span>
+				<div class="month-right">
+					<p class="month-money"></p>
+					<p class="month-tips"></p>
+				</div>
+			</div>
+		</div>
+		<div class="result-content-item">
+			<div class="result-shoufu">
+				<span class="shoufu-left">首付金额</span>
+				<div class="shoufu-right"></div>
+			</div>
+			<div class="result-first-month">
+				<span class="month-left">首月还款</span>
+				<div class="month-right">
+					<p class="month-money"><span class="month-down"></span></p>
+					<p class="month-tips"></p>
+				</div>
+			</div>
+			<div class="result-last-month">
+				<span class="shoufu-left">末月还款</span>
+				<div class="shoufu-right last-month"></div>
+			</div>
+		</div>
+	</div>
+	<div class="result-info">
+		<div class="result-info-item">
+			<p class="money-info-title">金额单位/元</p>
+			<div class="jqm-round-wrap-1 jqm-round-wrap">
+				<canvas id="jqm-round-sector0" class="jqm-round-sector" height="312" width="312"
+						data-color="#ff3f2c"></canvas>
+				<div class="jqm-round-circle" data-percent="100">
+					<p class="num"></p>
+					<p class="title">总还款金额</p>
+				</div>
+			</div>
+			<div class="jqm-round-box">
+				<div class="jqm-box-item">
+					<div class="jqm-round-wrap-2 jqm-round-wrap">
+						<canvas id="jqm-round-sector1" class="jqm-round-sector" height="216" width="216"
+								data-color="#33cca7"></canvas>
+						<div class="jqm-round-circle" data-percent="">
+							<p class="num"></p>
+							<div class="title">
+								<p class="title-1">贷款金额</p>
+								<p class="title-2"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jqm-box-item">
+					<div class="jqm-round-wrap-2 jqm-round-wrap">
+						<canvas id="jqm-round-sector2" class="jqm-round-sector" height="216" width="216"
+								data-color="#3ec6f6"></canvas>
+						<div class="jqm-round-circle" data-percent="">
+							<p class="num"></p>
+							<div class="title">
+								<p class="title-1">贷款利息</p>
+								<p class="title-2"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="result-info-item result-info-item-2">
+			<p class="tips-info-title">以上计算结果仅供参考</p>
+			<p class="tips-info-item">1、等额本息：每月还款额固定，所还总利息较多，适合收入稳定者；</p>
+			<p class="tips-info-item">2、等额本金：每月还款额递减，所还总利息较低，前期还款额较大。</p>
+		</div>
+	</div>
+</section>
+<section id="rateSetWrapper" class="rate-set-wrapper">
+	<div class="rate-header">
+		<a href="javascript:;" class="back-icon"></a>
+		<p class="rate-header-title">利率设置</p>
+	</div>
+	<div class="rate-input-box">
+		<span class="rate-input-label">自定义利率：</span>
+		<div class="rate-input">
+			<input type="text" oninput="Tools.clearNoNum(this)" maxlength="9">
+			<span class="rate-unit">%</span>
+		</div>
+		<span class="rate-input-btn">确定</span>
+	</div>
+	<div class="rate-select-tips">或者选择常用利率</div>
+	<ul class="rate-list">
+		<li class="selected-item" data-num="0.85">85折</li>
+		<li class="" data-num="0.9">9折</li>
+		<li class="" data-num="0.95">95折</li>
+		<li class="" data-num="1">基准利率</li>
+	</ul>
+</section>
+<script src="/js/counter/phone_base.js"></script>
+<script src="/js/counter/iscroll.js"></script>
+<script src="/js/counter/jsqClass.js"></script>
+<script src="/js/counter/tools.js"></script>
+<script src="/js/counter/business.js"></script>
+</body>
+</html>

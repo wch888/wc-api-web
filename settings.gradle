@@ -1,0 +1,3 @@
+rootProject.name = 'wc-api-web'
+include ':wc-service'
+project(':wc-service')
