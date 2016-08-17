@@ -61,7 +61,8 @@ public class ClueController {
         if (uid <= 0) {
             return JsonResult.notLogin();
         }
-        if (pid==null&&pid<=0) {
+        if (pid==null||pid<=0) {
+
             pid= Long.valueOf(settingService.getInt("clueDefault",0));
         }
         ProductBroker productBroker = productBrokerService.updateAndGetCircleBespeak(pid);
