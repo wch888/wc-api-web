@@ -79,7 +79,7 @@ public class ClueController {
         clue.setUserId(uid);
         clue.setAgentId(productBroker.getUserId());
         clueService.add(clue);
-        walletManger.clueAdd(uid);
+
         return new JsonResult(true);
     }
 
