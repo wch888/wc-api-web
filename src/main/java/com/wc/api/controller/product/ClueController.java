@@ -1,5 +1,6 @@
 package com.wc.api.controller.product;
 
+import com.wc.api.controller.wallet.WalletManger;
 import com.wc.api.util.JsonResult;
 import com.wc.api.util.RegLoginUtil;
 import com.wc.base.service.SettingService;
@@ -43,6 +44,8 @@ public class ClueController {
     private ProductBrokerService productBrokerService;
     @Autowired
     private SettingService settingService;
+    @Autowired
+    private WalletManger walletManger;
 
     @ApiOperation(value = "增加线索", notes = "增加线索 ", httpMethod = "POST", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiResponses(value = {
@@ -75,6 +78,7 @@ public class ClueController {
         clue.setUserId(uid);
         clue.setAgentId(productBroker.getUserId());
         clueService.add(clue);
+        walletManger.clueAdd(uid);
         return new JsonResult(true);
     }
 

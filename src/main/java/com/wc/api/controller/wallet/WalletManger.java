@@ -87,4 +87,20 @@ public class WalletManger {
         walletService.addIntegration(userId, integration);
     }
 
+    /**
+     * 分享房源
+     *
+     * @param userId
+     */
+    public void clueAdd(long userId) {
+        int integration = settingService.getInt("clue_add", 0);
+        IntegrationLog log = new IntegrationLog();
+        log.setTitle(CLUE_STR);
+        log.setCreateTime(new Date());
+        log.setIntegration(integration);
+        log.setType(IntegrationLog.CLUE);
+        log.setUserId(userId);
+        integrationLogService.add(log);
+        walletService.addIntegration(userId, integration);
+    }
 }
