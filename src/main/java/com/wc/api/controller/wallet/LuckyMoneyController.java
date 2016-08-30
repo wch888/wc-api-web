@@ -69,6 +69,9 @@ public class LuckyMoneyController {
         PagerControl<LuckyMoneyLog> pc = luckyMoneyLogService.page(bean, new PageInfo(page, size), "order by id desc");
         for (LuckyMoneyLog luckyMoneyLog : pc.getEntityList()) {
             LuckyMoney money = luckyMoneyService.getById(luckyMoneyLog.getLuckyId());
+            if(null==money){
+                continue;
+            }
             luckyMoneyLog.setStatTime(money.getStartTime());
             luckyMoneyLog.setEndTime(money.getEndTime());
 
