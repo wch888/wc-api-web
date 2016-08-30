@@ -164,6 +164,7 @@ public class GoodsController {
         }
         IntegrationLog bean = new IntegrationLog();
         bean.setUserId(uid);
+        bean.setType(IntegrationLog.BUY);
         PagerControl<IntegrationLog> pc = integrationLogService.page(bean, new PageInfo(page, size), "order by id desc");
         return new JsonResult(true).setData(pc);
     }
